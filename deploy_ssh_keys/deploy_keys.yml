@@ -1,7 +1,7 @@
 - name: Deploy public ssh keys to servers
   hosts: all
   vars_file: vars/user.yml
-  become_user: "{{ poteeadm }}"
+  become_user: "{{ user }}"
   tasks:
     - include_vars:
         file: vars/ssh_keys.yml
