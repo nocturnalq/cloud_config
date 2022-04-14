@@ -1,0 +1,15 @@
+---
+- name: Update cache and install nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: latest
+    update_cache: yes
+
+- name: Copy website files to the server`s document root
+  ansible.builtin.copy:
+    src: "{{ nginx_vars['app_root'] }}"
+    dest: "{{ nginx_vars['document_root:'] }}"
+    mode: preserve
+
+- name: Apply Nginx template
+  

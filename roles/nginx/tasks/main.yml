@@ -1,37 +1,8 @@
 ---
-vars:
-  server_name: srv1.potee.local
-  document_root: /var/www/html
-  app_root: demo
+- name: Install nginx for redhat os
+  ansible.builtin.import_tasks: redhat.yml
+  when: ansible_facts['os_family'] | lower == 'redhat'
 
-tasks:
-  - name: Update apt cache and install nginx
-    apt:
-      name: nginx
-      state: latest
-      update_cache: yes
-  
-  - name: Copy website files to server
-    copy:
-      src: "{{ app_root }}"
-      dest: "{{ document_root }}"
-      mode: preserve
-
-  - name: Apply Nginx template
-    template:
-      src: files/nginx.conf.j2
-      dest: /etc/nginx/sites-available/default
-    notify: Restart Nginx
-
-  - name: Enable new site
-    file:
-      src: /etc/nginx/sites-available/default
-      dest: /etc/nginx/sites-enabled/default
-      state: link
-    notify: Restart Nginx
-
-handlers:
-  - name: Restart Nginx
-    service:
-      name: nginx
-      state: restarted
+- name: Install nginx for ubuntu os
+  ansible.builtin.import_tasks: ubuntu.yml
+  when: ansible_facts['os_family'] | lower == 'ubuntu'
