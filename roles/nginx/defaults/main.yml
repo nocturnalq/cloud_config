@@ -1,0 +1,4 @@
+nginx_vars:
+  server_name: srv1.potee.local
+  document_root: /var/www/html
+  app_root: demo
