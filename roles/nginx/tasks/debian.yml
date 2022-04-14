@@ -1,24 +1,24 @@
 ---
 - name: Update cache and install nginx
-  ansible.builtin.yum:
+  apt:
     name: nginx
     state: latest
     update_cache: yes
 
 - name: Copy website files to the server`s document root
-  ansible.builtin.copy:
+  copy:
     src: "{{ nginx_vars['app_root'] }}"
     dest: "{{ nginx_vars['document_root'] }}"
     mode: preserve
 
 - name: Apply Nginx template
-  ansible.builtin.template:
+  template:
     src: nginx.conf.j2
     dest: "{{ nginx_vars['sites_available'] }}"
   notify: Restart Nginx
 
 - name: Enable new site
-  ansible.builtin.file:
+  file:
     src: "{{ nginx_vars['sites_available'] }}"
     dest: "{{ nginx_vars['sites_enabled'] }}"
     state: link

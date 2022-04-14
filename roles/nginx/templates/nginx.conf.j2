@@ -1,13 +1,13 @@
 server {
   listen 80;
+  listen [::]:80;
 
-  root {{ document_root }}/{{ app_root }};
+  root {{ nginx_vars['document_root'] }}/{{ nginx_vars['app_root'] }};
   index index.html index.htm;
 
-  server_name {{ server_name }};
+  server_name {{ nginx_vars['server_name'] }};
   
   location / {
-   default_type "text/html";
    try_files $uri.html $uri $uri/ =404;
   }
 }
