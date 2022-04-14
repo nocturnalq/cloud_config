@@ -1,4 +1,6 @@
 nginx_vars:
   server_name: srv1.potee.local
-  document_root: /var/www/html
+  document_root: /var/www
   app_root: demo
+  sites_available: /etc/nginx/sites-available/default
+  sites_enabled: /etc/nginx/sites-enabled/default
