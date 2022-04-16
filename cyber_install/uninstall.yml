@@ -1,0 +1,16 @@
+- name: Uninstall ctfd
+  hosts: cyber2022
+  become_user: "{{ ansible_user }}"
+  gather_facts: True
+  
+  tasks:
+    
+    - name: Stop docker-compose
+      ansible.builtin.docker_compose:
+        project_src: CTFd
+        state: absent
+
+    - name: Delete CTFd directory
+      ansible.builtin.file:
+        path: CTFd
+        state: absent

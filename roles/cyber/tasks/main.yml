@@ -1,0 +1,23 @@
+- name: Copy archive to remote server
+  ansible.builtin.copy:
+    src: ctfd.tar
+    dest: .
+
+- name: Untar archive
+  ansible.builtin.unarchive:
+    src: ctfd.tar
+    dest: .
+    remote_src: yes
+
+- name: Delete tar archive
+  ansible.builtin.file:
+    path: ctfd.tar
+    state: absent 
+
+- name: Deploy docker-compose
+  ansible.builtin.docker_compose:
+    project_src: CTFd
+  register: output
+
+- ansible.builtin.debug:
+    var: output

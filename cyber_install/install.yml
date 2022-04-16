@@ -1,0 +1,6 @@
+- name: Deploy ctfd 
+  hosts: cyber2022
+  become_user: "{{ ansible_user }}"
+  gather_facts: True
+  roles:
+    - cyber
