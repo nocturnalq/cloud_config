@@ -6,3 +6,12 @@ list_of_packages:
   - software-properties-common
   - python3-pip
   - python3-setuptools
+
+pip_packages:
+  - docker 
+  - docker-compose
+
+rhel_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io

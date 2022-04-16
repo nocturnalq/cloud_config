@@ -19,3 +19,13 @@
     update_cache: yes
     name: docker-ce
     state: latest
+
+- name: Install Docker and Docker-compose Modules for python
+  ansible.builtin.pip:
+    name: "{{ pip_packages }}"
+
+- name: Install docker-compose 
+  ansible.builtin.get_url:
+    url: https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: '755'
