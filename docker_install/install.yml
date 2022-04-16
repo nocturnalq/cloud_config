@@ -1,6 +1,6 @@
 - name: Configure servers
-  hosts: servers
-  become: true
+  hosts: cyber2022
+  become_user: "{{ ansible_user }}"
   gather_facts: True
   roles:
     - docker

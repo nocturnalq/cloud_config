@@ -1,6 +1,6 @@
 - name: Deploy public ssh keys to servers
   hosts: servers
-  become_user: 'enter user'
+  become_user: "{{ ansible_user }}"
   gather_facts: True
   roles:
     - pub_keys
