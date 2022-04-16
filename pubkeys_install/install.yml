@@ -1,0 +1,6 @@
+- name: Deploy public ssh keys to servers
+  hosts: servers
+  become_user: 'enter user'
+  gather_facts: True
+  roles:
+    - pub_keys
