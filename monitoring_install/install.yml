@@ -1,0 +1,12 @@
+- name: Install monitoring stack
+  hosts: monitoring
+  become: yes
+  roles:
+    - prometheus
+    - grafana
+
+- name: Install node_exporter
+  hosts: player_nodes
+  become: yes
+  roles:
+    - node_exporter 
