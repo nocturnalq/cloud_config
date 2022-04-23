@@ -1,4 +1,4 @@
 - name: Put public keys
   ansible.builtin.lineinfile:
-    path: "~/.ssh/authorized_keys"
-    line: "{{ ssh_keys }}"
+    path: "/home/{{ user }}/.ssh/authorized_keys"
+    line: "{{ ssh_keys[''] }}"
