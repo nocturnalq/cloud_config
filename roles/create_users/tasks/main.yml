@@ -25,3 +25,11 @@
     owner: team
     group: team
     mode: '0644'
+
+- name: Exec command to reboot server
+  reboot:
+    msg: Reboot inicialized by Ansible
+    reboot_timeout: 200
+
+- name: Ping servers
+  ansible.builtin.ping:
