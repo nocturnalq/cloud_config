@@ -36,10 +36,10 @@
     groups: docker
     append: yes
 
-- name: Exec command to reboot server
-  reboot:
-    msg: Reboot inicialized by Ansible
-    reboot_timeout: 200
+# - name: Exec command to reboot server
+#   reboot:
+#     msg: Reboot inicialized by Ansible
+#     reboot_timeout: 200
 
-- name: Ping servers
-  ansible.builtin.ping:
+# - name: Ping servers
+#   ansible.builtin.ping:

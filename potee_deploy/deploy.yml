@@ -1,8 +1,22 @@
+- name: Install iptables rules
+  import_playbook: ../iptables_install/install.yml
+
 - name: Install docker
-  ansible.builtin.import_playbook: ../docker_install/install.yml
+  import_playbook: ../docker_install/install.yml
 
 - name: Create users
-  ansible.builtin.import_playbook: ../users_install/install.yml
+  import_playbook: ../users_install/install.yml
 
 - name: Install monitoring
-  ansible.builtin.import_playbook: ../monitoring_install/install.yml
+  import_playbook: ../monitoring_install/install.yml
+
+- hosts: all
+  become: true
+  tasks:
+    - name: Exec command to reboot server
+      reboot:
+        msg: Reboot inicialized by Ansible
+        reboot_timeout: 200
+
+    - name: Ping servers
+      ansible.builtin.ping:

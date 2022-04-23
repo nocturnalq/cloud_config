@@ -1,0 +1,25 @@
+- name: Setup interface forwarding 1
+  ansible.builtin.iptables:
+    chain: FORWARD
+    in_interface: "{{ interfaces }}"
+    out_interface: ens192
+    jump: ACCEPT
+
+- name: Setup interface forwarding 2
+  ansible.builtin.iptables:
+    chain: FORWARD
+    in_interface: ens192
+    out_interface: "{{ interfaces }}"
+    jump: ACCEPT
+
+- name: Setup postrouting
+  ansible.builtin.iptables:
+    table: nat
+    chain: POSTROUTING
+    out_interface: ens192
+    jump: MASQUERADE
+
+- name: Save iptables rules
+  become: true
+  ansible.builtin.shell: "iptables-save"
+
