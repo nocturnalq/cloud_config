@@ -21,7 +21,11 @@
     out_interface: ens192
     jump: MASQUERADE
 
-- name: Save iptables rules
+- name: Install iptables-persistent
+  ansible.builtin.apt:
+    name: iptables-persistent
+
+- name: Save changes 
   become: true
-  ansible.builtin.shell: "iptables-save"
+  ansible.builtin.shell: "netfilter-persistent save"
 
