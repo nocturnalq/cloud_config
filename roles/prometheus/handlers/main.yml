@@ -7,6 +7,6 @@
 
 - name: reload_prometheus
   uri:
-    url: http://localhost:9090/-/reload
+    url: http://localhost:9090/~/reload
     method: POST
     status_code: 200
