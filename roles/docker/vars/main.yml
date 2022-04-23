@@ -6,6 +6,7 @@ list_of_packages:
   - software-properties-common
   - python3-pip
   - python3-setuptools
+  - rsync
 
 pip_packages:
   - docker 
