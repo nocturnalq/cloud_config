@@ -1,0 +1,9 @@
+- name: Download and deploy infrastrucutre
+  hosts: player_nodes
+  become: true
+  tasks:
+    - name: Copy directory from Main server
+      ansible.builtin.synchronize:
+        src: "/home/ivanh/students-tasks"
+        dest: "/home/team/students-tasks"
+      delegate_to: main
