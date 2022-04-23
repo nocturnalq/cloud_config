@@ -2,7 +2,7 @@ prometheus_dir_configuration: "/etc/prometheus"
 prometheus_retention_time: "365d"
 prometheus_scrape_interval: "30s"
 prometheus_node_exporter: true
-prometheus_node_exporter_group: "all"
+prometheus_node_exporter_group: "player_nodes"
 prometheus_env: "production"
 prometheus_var_config:
   global:
@@ -14,4 +14,4 @@ prometheus_var_config:
     - job_name: prometheus
       scrape_interval: 5m
       static_configs:
-        - targets: ['{{ inventory_hostname }}:9090']
+        - targets: ['{{ inventory_hostname }}:9100']
