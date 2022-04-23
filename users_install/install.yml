@@ -1,0 +1,5 @@
+- name: Install users
+  hosts: player_nodes
+  become: yes
+  roles:
+    - create_users
