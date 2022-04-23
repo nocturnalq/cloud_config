@@ -1,5 +1,5 @@
 - name: Create user accounts
-  user:
+  ansible.builtin.user:
     name: team
     password: '$6$vpaN7aGcq6L$NBnjoOcXZUJzK/qI34wb1ii.S1VZqzGSu7AylZLjRaLOEeU/04oWjVYG85Y3pUFvi1CSFMSMMvEl9LdNlSHzt.'
     groups: docker
@@ -10,3 +10,18 @@
     create_home: yes
     home: /home/team
 
+- name: Create ssh directories
+  ansible.builtin.file:
+    path: "/home/team/.ssh"
+    state: directory
+    owner: team
+    group: team
+    mode: '0700'
+
+- name: Create authorized_keys file
+  ansible.builtin.file:
+    path: "/home/team/.ssh/authorized_keys"
+    state: touch
+    owner: team
+    group: team
+    mode: '0644'
