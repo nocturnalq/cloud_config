@@ -1,0 +1,8 @@
+- name: Install docker
+  ansible.builtin.import_playbook: ../docker_install/install.yml
+
+- name: Create users
+  ansible.builtin.import_playbook: ../users_install/install.yml
+
+- name: Install monitoring
+  ansible.builtin.import_playbook: ../monitoring_install/install.yml
