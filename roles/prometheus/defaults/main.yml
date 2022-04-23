@@ -14,4 +14,4 @@ prometheus_var_config:
     - job_name: prometheus
       scrape_interval: 5m
       static_configs:
-        - targets: ['{{ inventory_hostname }}:9100']
+        - targets: ['{{ mon }}:9090']
