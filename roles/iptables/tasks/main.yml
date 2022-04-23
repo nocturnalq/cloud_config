@@ -1,16 +1,18 @@
 - name: Setup interface forwarding 1
   ansible.builtin.iptables:
     chain: FORWARD
-    in_interface: "{{ interfaces }}"
+    in_interface: "{{ item }}"
     out_interface: ens192
     jump: ACCEPT
+  loop: "{{ interfaces }}"
 
 - name: Setup interface forwarding 2
   ansible.builtin.iptables:
     chain: FORWARD
     in_interface: ens192
-    out_interface: "{{ interfaces }}"
+    out_interface: "{{ item }}"
     jump: ACCEPT
+  loop: "{{ interfaces }}"
 
 - name: Setup postrouting
   ansible.builtin.iptables:
