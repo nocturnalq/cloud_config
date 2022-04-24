@@ -1,5 +1,5 @@
 - name: Deploy public ssh keys to servers
-  hosts: player_nodes
+  hosts: main, monitoring
   become: yes
   gather_facts: True
   roles:

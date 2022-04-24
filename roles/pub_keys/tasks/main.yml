@@ -1,4 +1,14 @@
 - name: Put public keys
   ansible.builtin.lineinfile:
-    path: "/home/{{ user }}/.ssh/authorized_keys"
-    line: "{{ ssh_keys[''] }}"
+    path: "/home/ivanh/.ssh/authorized_keys"
+    line: "{{ ssh_keys }}"
+
+- name: Enable pubkey autentification
+  ansible.builtin.lineinfile:
+    path: "/etc/ssh/sshd_config"
+    line: "PubkeyAuthentication yes"
+
+- name: Restart sshd
+  ansible.builtin.systemd:
+    name: sshd.service
+    state: restarted
