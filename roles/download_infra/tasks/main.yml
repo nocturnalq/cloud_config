@@ -1,4 +1,9 @@
+- name: Delete directory
+  ansible.builtin.file:
+    path: "/home/team/tasks"
+    state: absent
+
 - name: Copy directory from main server
   ansible.builtin.copy:
-    src: tasks
-    dest: "/home/team/tasks"
+    src: "/home/ivanh/tasks"
+    dest: "/home/team/"
