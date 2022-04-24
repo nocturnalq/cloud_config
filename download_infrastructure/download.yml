@@ -6,5 +6,5 @@
       ansible.builtin.synchronize:
         src: "/home/ivanh/students-tasks"
         dest: "rsync://{{ item }}/home/team/students-tasks"
-      loop: "{{ player_nodes }}"
+      loop: "{{ nodes }}"
       delegate_to: main
