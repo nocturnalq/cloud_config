@@ -1,7 +1,7 @@
 - name: Create user accounts
   ansible.builtin.user:
     name: team
-    password: '$6$vpaN7aGcq6L$NBnjoOcXZUJzK/qI34wb1ii.S1VZqzGSu7AylZLjRaLOEeU/04oWjVYG85Y3pUFvi1CSFMSMMvEl9LdNlSHzt.'
+    password: "{{ password }}"
     groups: docker, sudo
     append: yes
     state: present
