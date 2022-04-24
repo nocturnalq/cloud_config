@@ -5,5 +5,5 @@
     - name: Copy directory from Main server
       ansible.builtin.synchronize:
         src: "/home/ivanh/students-tasks"
-        dest: "/home/team/students-tasks"
+        dest: "rsync://10.90.192.33/home/team/students-tasks"
       delegate_to: main
