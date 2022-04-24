@@ -1,5 +1,5 @@
 - name: Download and deploy infrastrucutre
-  hosts: main
+  hosts: player_nodes
   become: true
   roles:
     - download_infra

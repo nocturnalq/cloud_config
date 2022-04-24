@@ -1,3 +1,4 @@
 - name: Copy directory from main server
-  shell: "scp -r tasks team@{{ item }}:."
-  loop: "{{ ip_addresses }}"
+  ansible.builtin.copy:
+    src: tasks
+    dest: "/home/team/tasks"
