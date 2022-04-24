@@ -6,5 +6,14 @@
       ansible.builtin.synchronize:
         src: "/home/ivanh/students-tasks"
         dest: "rsync://{{ item }}/home/team/students-tasks"
-      loop: "{{ nodes }}"
+      loop:
+          - 10.10.200.1
+          - 10.10.201.1
+          - 10.10.202.1
+          - 10.10.203.1
+          - 10.10.204.1
+          - 10.10.205.1
+          - 10.10.206.1
+          - 10.10.207.1
+          - 10.10.208.1
       delegate_to: main
