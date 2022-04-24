@@ -6,7 +6,7 @@
       ansible.builtin.synchronize:
         src: "/home/ivanh/students-tasks"
         dest: "rsync://{{ item }}/home/team/students-tasks"
-      loop:
+      with_items:
           - 10.10.200.1
           - 10.10.201.1
           - 10.10.202.1
