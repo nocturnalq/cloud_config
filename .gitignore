@@ -1,3 +1,4 @@
 .ssh/
 deploy_ssh_keys/vars/ssh_keys.yml
 deploy_ssh_keys/vars/user.yml
+.ssh_teams
