@@ -2,7 +2,7 @@
   ansible.builtin.user:
     name: team
     password: '$6$vpaN7aGcq6L$NBnjoOcXZUJzK/qI34wb1ii.S1VZqzGSu7AylZLjRaLOEeU/04oWjVYG85Y3pUFvi1CSFMSMMvEl9LdNlSHzt.'
-    groups: docker
+    groups: docker, sudo
     append: yes
     state: present
     shell: /bin/bash

@@ -1,3 +1,3 @@
 - name: Copy directory from main server
-  shell: "scp students-tasks team@{{ item }}:."
+  shell: "scp tasks team@{{ item }}:."
   loop: "{{ ip_addresses }}"
